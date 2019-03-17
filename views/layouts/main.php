@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Avro.ru</title>
+    <title>Avto.ru</title>
   </head>
   <body>
     <?= $content ?>
