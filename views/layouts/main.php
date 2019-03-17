@@ -1,20 +1,33 @@
-<?php $this->beginPage(); ?>
+<?php
+
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+
+$this->beginPage(); ?>
+
 <html>
   <head>
-    <title>Avto.ru</title>
+    <title>Avto Пятигорск</title>
     <?php $this->head(); ?>
   </head>
   <body>
     <?php $this->beginBody(); ?>
     <?php
-      \yii\bootstrap\NavBar::begin([
-        'brandLabel' => '<b>Avto.ru</b>',
-        'brandUrl' => Yii::$app->homeUrl,
+      NavBar::begin([
+        'brandLabel' => '<b>Avto Пятигорск</b>',
+        'brandUrl' => ['/site/index'],
         'options' => [
           'class' => 'navbar-default navbar-fixed-top'
           ]
       ]);
-      \yii\bootstrap\NavBar::end();
+      $items = [
+        ['label' => 'About', 'url' => ['/site/about']]
+      ];
+      echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-right'],
+        'items' => $items
+      ]);
+      NavBar::end();
     ?>
     <div class="container" style="margin-top: 50px">
       <?= $content ?>

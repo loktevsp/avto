@@ -1,2 +1,2 @@
-<h1> Avto.ru </h1>
+<h1>Avto Пятигорск</h1>
 Wellcome on my site
