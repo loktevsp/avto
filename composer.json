@@ -3,5 +3,12 @@
         "yiisoft/yii2": "*",
         "codeception/codeception": "*",
         "yiisoft/yii2-bootstrap": "*"
+    },
+    "config": {
+      "fxp-asset": {
+        "istaller-paths": {
+          "bower-asset-library": "vendor/bower"
+        }
+      }
     }
 }
