@@ -1,3 +1,24 @@
+<?php
+//Формируем текст запроса
+$id=1;
+
+//Выполняем запрос с сохранением идентификатора результата
+$result=Yii::$app->db->createCommand('SELECT brand FROM carbrands WHERE id='.$id);
+//->from('carbrand');
+//->where('id=:id', array(':id'=>$id));
+$result->queryAll();
+//Печатаем содержимое таблицы
+// while ($a=mysql_fetch_array($result))
+// {
+// $brand=$a['brand'];
+//
+// print ("$poroda");
+// }
+//
+// //Закрываем соединение
+// mysql_close();
+?>
+
 <h2> Новое объявление </h2>
 <form style='margin-top: 40px; margin-left:300px;'>
   <label for="selectBrand">Марка:</label>
