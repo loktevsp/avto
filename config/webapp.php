@@ -1,6 +1,6 @@
 <?php
 return [
-  'id' => 'videp',
+  'id' => 'avtoptg',
   'basePath' => realpath(__DIR__.'/../'),
   'components' => [
     'urlManager' => [
