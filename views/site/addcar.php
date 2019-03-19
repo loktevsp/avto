@@ -1,43 +1,48 @@
 <?php
-//Формируем текст запроса
-$id=1;
+  //$id = require 'getModelsFromBrand.php';
+  $command = Yii::$app->db->createCommand('SELECT brand FROM carbrands');
+  $listBrand = $command->queryAll();
 
-//Выполняем запрос с сохранением идентификатора результата
-$result=Yii::$app->db->createCommand('SELECT brand FROM carbrands WHERE id='.$id);
-//->from('carbrand');
-//->where('id=:id', array(':id'=>$id));
-$result->queryAll();
-//Печатаем содержимое таблицы
-// while ($a=mysql_fetch_array($result))
-// {
-// $brand=$a['brand'];
-//
-// print ("$poroda");
-// }
-//
-// //Закрываем соединение
-// mysql_close();
+  $isGet = false;
+  if(isset($id))
+  {
+    $command = Yii::$app->db->createCommand('SELECT model FROM carbrandsandmodels LEFT JOIN carmodels ON id_model = idmodel WHERE carbrandsandmodels.id_brand = '.$id);
+    $listModel = $command->queryAll();
+    $isGet = true;
+  }
+
 ?>
-
 <h2> Новое объявление </h2>
 <form style='margin-top: 40px; margin-left:300px;'>
   <label for="selectBrand">Марка:</label>
   <div class="form-group">
     <div class="select-group" style='width:600px;'>
-        <select class="select-brand" style='width:100%; height:30px;'>
+        <select class="select-brand" id="sbrand" style='width:100%; height:30px;'>
           <!-- Выпадающее меню -->
           <option style='margin-left:5px;'>Выберите марку машины</option>
-          <option style='margin-left:5px;' value="LADA">Lada</option>
+          <?php
+          $count = 0;
+          foreach ($listBrand as $k => $brands)
+          {
+            foreach ($brands as $key => $brand)
+            {
+              $count++;
+              if($id == $count)
+                print ('<option selected style=\'margin-left:5px;\' value=\"'.$count.'\">'.$brand.'</option>');
+              else
+               print ('<option style=\'margin-left:5px;\' value=\"'.$count.'\">'.$brand.'</option>');
+            }
+          }
+          ?>
         </select>
     </div>
   </div>
   <label for="selectModel">Модель:</label>
   <div class="form-group">
     <div class="select-group" style='width:600px;'>
-        <select class="select-brand" style='width:100%; height:30px;'>
+        <select class="select-model" id="smodel" style='width:100%; height:30px;'>
           <!-- Выпадающее меню -->
           <option style='margin-left:5px;'>Выберите модель машины</option>
-          <option style='margin-left:5px;' value="2107">2107</option>
         </select>
     </div>
   </div>

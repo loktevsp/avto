@@ -5,13 +5,20 @@ use yii\web\AssetBundle;
 
 class AppAsset extends AssetBundle
 {
-    public $sourcePath = '@app/modules/web';
+    public $basePath = '@webroot'; //алиас каталога с файлами, который соответствует @web
+    public $baseUrl = '@web';//Алиас пути к файлам
 
     public $css = [];
     public $js = [
-      'js/web.js',
+      'js/jquery.js',
+      'js/event.js',
     ];
 
-    public $depends = [];
+    public $depends = [
+    'yii\web\YiiAsset',
+    'yii\bootstrap\BootstrapAsset',
+    ];
+
+    //public $jsOptions = ['position' => \yii\web\View::POS_END];
 }
 ?>

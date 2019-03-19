@@ -1,9 +1,9 @@
 <?php
 use app\assets\AppAsset;
 AppAsset::register($this);
+
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-
 $this->beginPage();
 ?>
 
