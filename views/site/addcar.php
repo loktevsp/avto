@@ -1,5 +1,5 @@
 <?php
-  //$id = require 'getModelsFromBrand.php';
+  $this->registerJsFile('/js/eventaddcar.js');
   $command = Yii::$app->db->createCommand('SELECT brand FROM carbrands');
   $listBrand = $command->queryAll();
   $command = Yii::$app->db->createCommand('SELECT security FROM security');
@@ -13,7 +13,7 @@
 ?>
 <h2> Новое объявление </h2>
 
-  <label for="selectBrand">Марка:</label>
+  <label for="selectBrand">Марка:*</label>
   <div class="form-group">
     <div class="select-group" style='width:600px;'>
         <select id="sbrand" style='width:100%; height:30px;'>
@@ -36,7 +36,7 @@
         </select>
     </div>
   </div>
-  <label for="selectModel">Модель:</label>
+  <label for="selectModel">Модель:*</label>
   <div class="form-group">
     <div class="select-group" style='width:600px;'>
         <select class="select-model" id="smodel" style='width:100%; height:30px;'>
@@ -45,7 +45,7 @@
         </select>
     </div>
   </div>
-  <label for="inputMileage">Пробег:</label>
+  <label for="inputMileage">Пробег:*</label>
   <div class="form-group">
     <input class="form-control" style='width:600px;' id="inputMileage" placeholder="Введите пробег">
   </div>
@@ -144,24 +144,22 @@
         </ul>
 </div>
   </div>
-  <label for="inputMileage">Цена:</label>
+  <label for="inputMileage">Цена:*</label>
   <div class="form-group">
     <input class="form-control" style='width:600px;' id="inputPrice" placeholder="Введите цену">
   </div>
-  <label for="inputMileage">Телефон:</label>
+  <label for="inputMileage">Телефон:*</label>
   <div class="form-group">
     <input class="form-control" style='width:600px;' id="inputPhone" placeholder="Введите телефон">
   </div>
   <label for="inputMileage">Фото:</label>
   <div class="form-group" style='margin-top: -30px;'>
-    <form id="postimg" action="/php/file-handler.php" method="post" enctype="multipart/form-data">
       <img id='imgcar1' src="/load.jpg" style='margin-left: 40px; margin-top: 40px; max-width: 146px; max-height: 106px; width: 100%; height: auto;' />
         <input type='file' name="upload1" id='img1' style='margin-left: 200px; margin-top: -60px;'>
       <img id='imgcar2' src="/load.jpg" style='margin-left: 40px; margin-top: 40px; max-width: 146px; max-height: 106px; width: 100%; height: auto;' />
         <input type='file' name="upload2" id='img2' style='margin-left: 200px; margin-top: -60px;'>
       <img id='imgcar3' src="/load.jpg" style='margin-left: 40px; margin-top: 40px; max-width: 146px; max-height: 106px; width: 100%; height: auto;' />
         <input type='file'  name="upload3" id='img3' style='margin-left: 200px; margin-top: -60px;'>
-    </form>
   </div>
   <div class="form-group" style='margin-top:80px;'>
     <div class="btn-group">

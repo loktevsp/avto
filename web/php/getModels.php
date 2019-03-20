@@ -17,7 +17,7 @@
       foreach ($models as $key => $model)
       {
         $json = $json."_json[".($i++)."] = ";
-        $json = $json."JSON.stringify('$model'); \n";
+        $json = $json."JSON.stringify('".$model."'); \n";
       }
     }
   }

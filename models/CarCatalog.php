@@ -3,7 +3,7 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 
-class Catalog extends ActiveRecord
+class CarCatalog extends ActiveRecord
 {
   const STATUS_INACTIVE = 0;
   const STATUS_ACTIVE = 1;

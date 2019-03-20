@@ -1,9 +1,10 @@
 <?php
 
-foreach ($_FILES as $key => $value) {
+//foreach ($_FILES as $key => $value) {
 // Перезапишем переменные для удобства
-$filePath  = $value['tmp_name'];
-$errorCode = $value['error'];
+$filePath  = $_FILES['file']['tmp_name'];
+$errorCode = $_FILES['file']['error'];
+
 
 // Проверим на ошибки
 if ($errorCode !== UPLOAD_ERR_OK || !is_uploaded_file($filePath)) {
@@ -63,6 +64,43 @@ if ($errorCode !== UPLOAD_ERR_OK || !is_uploaded_file($filePath)) {
     if (!move_uploaded_file($filePath, __DIR__ . '\\pics\\' . $name . $format)) {
         print('При записи изображения на диск произошла ошибка.');
     }
-  }
-exit('<meta http-equiv="refresh" content="0; url=/site/index" />');
+  //}
+
+  $size=GetImageSize ( __DIR__ . '\\pics\\' . $name . $format);
+  $pathImg =  __DIR__ . '\\pics\\' . $name . $format;
+  $namefile = $name . $format;
+function resizeImege($w, $h, $wd, $hd, $path, $name)
+{
+  $koew=$w/$wd;
+  $koeh=$h/$hd;
+  $new_w=ceil($w/$koeh);
+  $new_h=ceil($h/$koew);
+  $src=ImageCreateFromJPEG ($path);
+  $dst=ImageCreateTrueColor ($wd, $hd);
+  $white = imagecolorallocate($dst, 255, 255, 255);
+  imagefill($dst, 0, 0, $white);
+
+    //Данная функция копирует прямоугольную часть изображения в другое изображение, плавно интерполируя пикселные значения таким образом, что, в частности, уменьшение размера изображения сохранит его чёткость и яркость.
+  if($w > $wd)
+    ImageCopyResampled ($dst, $src, 0, ($hd-$new_h)/2, 0, 0, $wd, $new_h, $w, $h);
+  else if($h > $hd)
+   ImageCopyResampled ($dst, $src, ($wd-$new_w)/2, 0, 0, 0, $new_w, $hd, $w, $h);
+  else
+   ImageCopyResampled ($dst, $src, ($wd-$new_w)/2, ($hd-$new_h)/2, 0, 0, $new_w, $new_h, $w, $h);
+
+  //Сохраняем полученное изображение в формате JPG
+  $p = $wd."x".$hd.$name;
+  ImageJPEG ($dst, __DIR__.'\\pics\\'.$p, 100);
+  imagedestroy($src);
+  return $p;
+}
+
+print(
+  "{
+    \"url\":\"".$name.$format."\",
+    \"url_720x540\":\"".resizeImege($size[0],$size[1],720,540,$pathImg,$namefile)."\",
+    \"url_146x106\":\"".resizeImege($size[0],$size[1],146,106,$pathImg,$namefile)."\"
+  }"
+);
+//exit('<meta http-equiv="refresh" content="0; url=/site/index" />');
 ?>
