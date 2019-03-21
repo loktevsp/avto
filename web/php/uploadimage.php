@@ -43,8 +43,8 @@ if ($errorCode !== UPLOAD_ERR_OK || !is_uploaded_file($filePath)) {
 
     // Зададим ограничения для картинок
     $limitBytes  = 1024 * 1024 * 5;
-    $limitWidth  = 1280;
-    $limitHeight = 768;
+    $limitWidth  = 1280*3;
+    $limitHeight = 768*3;
 
     // Проверим нужные параметры
     if (filesize($filePath) > $limitBytes) print('Размер изображения не должен превышать 5 Мбайт.');

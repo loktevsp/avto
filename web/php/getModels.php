@@ -12,19 +12,19 @@
     $listModel = $command->queryAll();
     $json = "{\"models\":[";
 
-    $i = 0;
     foreach ($listModel as $k => $models)
     {
+      $count = count($models);
       foreach ($models as $key => $model)
       {
-        if($i !== count($models))
-          $json = $json."\"".$model."\" ,";
-        else $json = $json."\"".$model."\"";
-        $i++;
+        $json = $json."\"".$model."\",";
       }
     }
   }
 
+  if ($json{strlen($json)-1} == ',') {
+     $json = substr($json,0,-1);
+  }
     $json = $json."]}";
 
   echo $json;
