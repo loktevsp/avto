@@ -18,7 +18,6 @@ var Element = document.getElementById('smodel');
 while(Element.lastElementChild.innerHTML !== 'Выберите модель машины')
   Element.removeChild(Element.lastElementChild);
 
-alert(Response);
  var i = 0;
  var m = JSON.parse(Response).models;
 
