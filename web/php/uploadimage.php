@@ -83,10 +83,8 @@ function resizeImege($w, $h, $wd, $hd, $path, $name)
     //Данная функция копирует прямоугольную часть изображения в другое изображение, плавно интерполируя пикселные значения таким образом, что, в частности, уменьшение размера изображения сохранит его чёткость и яркость.
   if($w > $wd)
     ImageCopyResampled ($dst, $src, 0, ($hd-$new_h)/2, 0, 0, $wd, $new_h, $w, $h);
-  else if($h > $hd)
-   ImageCopyResampled ($dst, $src, ($wd-$new_w)/2, 0, 0, 0, $new_w, $hd, $w, $h);
   else
-   ImageCopyResampled ($dst, $src, ($wd-$new_w)/2, ($hd-$new_h)/2, 0, 0, $new_w, $new_h, $w, $h);
+  ImageCopyResampled ($dst, $src, ($wd-$new_w)/2, 0, 0, 0, $new_w, $hd, $w, $h);
 
   //Сохраняем полученное изображение в формате JPG
   $p = $wd."x".$hd.$name;
