@@ -155,11 +155,11 @@
   <label for="inputMileage">Фото:</label>
   <div class="form-group" style='margin-top: -30px;'>
       <img id='imgcar1' src="/load.jpg" style='margin-left: 40px; margin-top: 40px; max-width: 146px; max-height: 106px; width: 100%; height: auto;' />
-        <input type='file' name="upload1" id='img1' style='margin-left: 200px; margin-top: -60px;'>
+        <input type='file' accept="image/jpeg" name="upload1" id='img1' style='margin-left: 200px; margin-top: -60px;'>
       <img id='imgcar2' src="/load.jpg" style='margin-left: 40px; margin-top: 40px; max-width: 146px; max-height: 106px; width: 100%; height: auto;' />
-        <input type='file' name="upload2" id='img2' style='margin-left: 200px; margin-top: -60px;'>
+        <input type='file' accept="image/jpeg" name="upload2" id='img2' style='margin-left: 200px; margin-top: -60px;'>
       <img id='imgcar3' src="/load.jpg" style='margin-left: 40px; margin-top: 40px; max-width: 146px; max-height: 106px; width: 100%; height: auto;' />
-        <input type='file'  name="upload3" id='img3' style='margin-left: 200px; margin-top: -60px;'>
+        <input type='file' accept="image/jpeg" name="upload3" id='img3' style='margin-left: 200px; margin-top: -60px;'>
   </div>
   <div class="form-group" style='margin-top:80px;'>
     <div class="btn-group">
