@@ -9,22 +9,23 @@ var comfort = document.getElementById('comfort');
 var multimedia = document.getElementById('multimedia');
 var mpost = function(_value)
 {
-  var Text = $.ajax({type: "POST",
+  var Response = $.ajax({type: "POST",
       url: "/php/getModels.php",
       data: {id:_value},
       async: false}).responseText;
-      eval(Text);
 
 var Element = document.getElementById('smodel');
 while(Element.lastElementChild.innerHTML !== 'Выберите модель машины')
   Element.removeChild(Element.lastElementChild);
 
  var i = 0;
- while(_json[i] !== undefined)
+ var m = JSON.parse(Response).models;
+
+ while(m[i] !== undefined)
 {
     var Option = document.createElement("OPTION");
         Option.value = i+1;
-        Option.text= eval(_json[i++]);
+        Option.text= m[i++];
     Element.appendChild(Option);
  }
 };
