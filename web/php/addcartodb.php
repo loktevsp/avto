@@ -84,11 +84,6 @@ if(isset($_POST['security']))
     $carsecurity->id_security = $_POST['security'][$i];
     $carsecurity->save();
   }
-
-  $security = CarSecurity::find()->asArray()->all();
-  $car = Catalog::findOne($idCar);
-  $car->idSecurity = $security[count($security)-1]['id'];
-  $car->save();
 }
 //--------------------------------------------------------------------
 if(isset($_POST['exterior']))
@@ -100,11 +95,6 @@ if(isset($_POST['exterior']))
     $carexterior->id_exterior = $_POST['exterior'][$i];
     $carexterior->save();
   }
-
-  $exterior = CarExterior::find()->asArray()->all();
-  $car = Catalog::findOne($idCar);
-  $car->idExterior = $exterior[count($exterior)-1]['id'];
-  $car->save();
 }
 //--------------------------------------------------------------------
 if(isset($_POST['comfort']))
@@ -116,11 +106,6 @@ if(isset($_POST['comfort']))
     $carcomfort->id_comfort = $_POST['comfort'][$i];
     $carcomfort->save();
   }
-
-  $comfort = CarComfort::find()->asArray()->all();
-  $car = Catalog::findOne($idCar);
-  $car->idComfort = $comfort[count($comfort)-1]['id'];
-  $car->save();
 }
 //--------------------------------------------------------------------
 if(isset($_POST['multimedia']))
@@ -132,11 +117,6 @@ if(isset($_POST['multimedia']))
     $carmultimedia->id_multimedia = $_POST['multimedia'][$i];
     $carmultimedia->save();
   }
-
-  $multimedia = CarMultimedia::find()->asArray()->all();
-  $car = Catalog::findOne($idCar);
-  $car->idMultimedia = $multimedia[count($multimedia)-1]['id'];
-  $car->save();
 }
 
 $car = Catalog::findOne($idCar);

@@ -79,7 +79,7 @@ var UploadImg = function(_nameid)
       form_data.append('file', file_data);
       //alert(form_data);
       return $.ajax({
-                  url: '/php/file-handler.php',
+                  url: '/php/uploadimage.php',
                   dataType: 'text',
                   cache: false,
                   contentType: false,
@@ -122,7 +122,7 @@ document.getElementById('savecar').onclick = function(){
   jsonImg3 = UploadImg('img3');
 
   $.ajax({type: "POST",
-          url: "/php/file.php",
+          url: "/php/addcartodb.php",
           data: {brand:sbrand.children[sbrand.selectedIndex].text,
                 model:smodel.children[smodel.selectedIndex].text,
                 mileage:inputMileage.value,
