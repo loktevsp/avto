@@ -14,7 +14,7 @@ $this->beginPage();
     <title>Avto Пятигорск</title>
     <?php $this->head(); ?>
   </head>
-  <body>
+  <body style = "background-color: #DDD;">
     <?php $this->beginBody(); ?>
     <?php
       NavBar::begin([

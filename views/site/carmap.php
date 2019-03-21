@@ -19,14 +19,14 @@
 print('<div><h1>'.$car['brand'].' '.$car['model'].'</h1></div>');
 ?>
 
-<div class='imagescar' style='position: absolute; top: 150px; left: 60px;'>
+<div class='imagescar' style='position: absolute; top: 150px; left: 60px; '>
   <?php
   if(isset($car['urlImg1_720x540']))
     print('<img src="'.'/php/pics/'.$car['urlImg1_720x540'].'" style="position: absolute; max-width: 720px; max-height: 540px;" />');
   if(isset($car['urlImg2_146x106']))
-    print('<img src="'.'/php/pics/'.$car['urlImg2_146x106'].'" style="position: absolute; top: 520px; left: 0px; max-width: 146px; max-height: 106px;" />');
+    print('<img src="'.'/php/pics/'.$car['urlImg2_146x106'].'" style="position: absolute; top: 550px; left: 0px; max-width: 146px; max-height: 106px;" />');
   if(isset($car['urlImg3_146x106']))
-    print('<img src="'.'/php/pics/'.$car['urlImg3_146x106'].'" style="position: absolute; top: 520px; left: 156px; max-width: 146px; max-height: 106px;" />');
+    print('<img src="'.'/php/pics/'.$car['urlImg3_146x106'].'" style="position: absolute; top: 550px; left: 156px; max-width: 146px; max-height: 106px;" />');
   ?>
 </div>
 <div style='position: absolute; top: 60px; right: 180px;'><h1>Информация:</h1></div>
